@@ -1,0 +1,30 @@
+===============================================
+Author
+Suriya Singh
+singh.suriya@gmail.com
+http://suriyasingh.github.io/
+===============================================
+
+Use this code to reproduce results in accompanying report (suriya_residual_fabrics_report.pdf)
+
+Dependencies:
+1. Python 2.7
+2. PyTorch
+3. CuDNN
+
+The code consists of:
+1. neural_fabrics.py : PyTorch wrapper for building neural fabrics networks and its variants
+	a. fabric_units: 'a' or 'd'
+	b. block: 'conv' or 'bottleneck'
+	c. activations: 'post' or 'pre'
+	d. gating: None, 'scaling', 'total_dropout', '1x1'
+	e. Default configs : fabric_unit = 'a', block = 'conv', activations = 'post', gating = None
+	f. Saxena and Verbeek, NIPS 2016 : fabric_unit = [Default], block=[Default], activations = [Default], gating = [Default]  
+	g. Residual fabrics network : fabric_unit = 'a', block='bottleneck', activations = 'pre', gating = 'scaling'
+2. fabrics_cifar10.py : Python script with examples on training different fabric configurations on CIFAR10.
+3. fabric_utils.py : helper functions for 
+	a. plotting loss/accuracy curves
+	b. count the number of parameters in the network
+	c. progress bar
+
+Note: Parts of cifar10 example code are taken from https://github.com/kuangliu/pytorch-cifar
